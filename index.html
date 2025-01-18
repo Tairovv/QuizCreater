@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <button id="toggle-quizzes-button" class="btn-toggle"><i class="fas fa-bars"></i></button>
+        <h2><i class="fas fa-book"></i> Сохраненные квизы</h2>
+    </div>
+    <div id="saved-quizzes" class="hidden"></div>
+    <div class="container">
+        <h1><i class="fas fa-pen-alt"></i> Создание квиза</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <label for="question-text">Введите текст вопросов и ответов (начало нового вопроса обозначается знаком &):</label>
+                <textarea id="question-text" rows="5" required></textarea>
+                <button type="button" class="btn-help" id="help-button"><i class="fas fa-question-circle"></i></button>
+                <div id="help-text" class="hidden">
+                    <p>Чтобы создать квиз, следуйте следующим инструкциям:</p>
+                    <ul>
+                        <li>Начинайте каждый новый вопрос со знака &.</li>
+                        <li>После вопроса ставьте знак * для отделения от ответов.</li>
+                        <li>Помечайте правильный ответ знаком + в конце ответа.</li>
+                    </ul>
+                    <p>Пример:</p>
+                    <p>&В поликлинику обратилась бабушка с внуком 5 лет, ребенок находился на даче 
+                        вместе с ней, через некоторое время у ребенка появились жалобы на 
+                        заложенность носа, чихание. Предварительно выставлен диагноз аллергический 
+                        ринит. Какое обследование обычно рекомендуется для диагностики 
+                        аллергического ринита?*<br>
+                        КТ придаточных пазух носа <br>
+                        Диафаноскопия <br>
+                        Рентгенграфия <br>
+                        Кожные пробы + <br>
+                        Бактериологическое исследование
+                    </p>
+                </div>
+            </div>
+            <div class="timer">
+                <label for="timer">Время на квиз (в секундах):</label>
+                <input type="number" id="timer" value="60" min="10" required>
+            </div>
+            <button type="button" id="add-question-button" class="btn"><i class="fas fa-plus-circle"></i> Добавить вопрос</button>
+        </form>
+        <div class="button-group">
+            <button id="create-quiz-button" class="btn"><i class="fas fa-check-circle"></i> Создать квиз</button>
+            <button id="reset-quiz-button" class="btn"><i class="fas fa-trash-alt"></i> Сбросить все вопросы</button>
+        </div>
+        <div id="quiz-questions"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
